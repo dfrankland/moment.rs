@@ -3,6 +3,8 @@ name = "moment"
 version = "0.1.0"
 authors = ["Dylan Frankland <dylan@frankland.io>"]
 edition = "2018"
+description = "Moment.js for Rust"
+license = "MIT"
 
 [dependencies]
 chrono = { version = "0.4.6", features = ["serde"] }
