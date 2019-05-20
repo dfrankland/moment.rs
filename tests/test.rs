@@ -17,5 +17,6 @@ fn test() {
     let mut durations = HashSet::new();
     durations.insert((5, UnitOfTime::Day));
     let cal = moment.calendar(moment.clone().subtract(duration(durations)), None, None);
+    // assert_eq!(cal, String::from("Monday at 12:48 AM"));
     println!("{}", cal);
 }
