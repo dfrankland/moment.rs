@@ -50,12 +50,11 @@ impl Locale {
                 LOCALE_FORMATTING_TOKENS.replace_all(&expanded_format, |captures: &Captures| {
                     let mut replacement_value = String::from("");
                     if let Some(match_text) = captures.get(0) {
-                        if let Some(value) =
-                            self.long_date_format.get_by_key(match_text.as_str())
-                        {
+                        if let Some(value) = self.long_date_format.get_by_key(match_text.as_str()) {
                             replacement_value = format!("{}{}", replacement_value, value);
                         } else {
-                            replacement_value = format!("{}{}", replacement_value, match_text.as_str());
+                            replacement_value =
+                                format!("{}{}", replacement_value, match_text.as_str());
                         }
                     }
                     replacement_value
@@ -76,7 +75,11 @@ impl Locale {
         input.replace(r"\", "")
     }
 
-    fn format_tokens<T: TimeZone + Debug>(&self, token: &str, moment: &Moment<T>) -> Option<String> {
+    fn format_tokens<T: TimeZone + Debug>(
+        &self,
+        token: &str,
+        moment: &Moment<T>,
+    ) -> Option<String> {
         match token {
             // Month
             "M" => Some(format!("{}", moment.month())),

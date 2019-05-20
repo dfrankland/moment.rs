@@ -1,5 +1,5 @@
-use moment::{Moment, UnitOfTime, duration};
 use chrono::prelude::*;
+use moment::{duration, Moment, UnitOfTime};
 use std::collections::HashSet;
 
 // TODO: Make test that compares output to moment.js

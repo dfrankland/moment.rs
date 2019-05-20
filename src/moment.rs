@@ -1,6 +1,11 @@
-use crate::{locale::{Locale, CalendarFormatFn, Calendar}, locales::LOCALE_EN_US, UnitOfTime, duration};
+use crate::{
+    duration,
+    locale::{Calendar, CalendarFormatFn, Locale},
+    locales::LOCALE_EN_US,
+    UnitOfTime,
+};
 use chrono::{prelude::*, Duration};
-use std::{collections::HashSet, ops::Deref, fmt::Debug};
+use std::{collections::HashSet, fmt::Debug, ops::Deref};
 
 #[derive(Debug, Clone)]
 pub struct Moment<T: TimeZone + Debug> {
@@ -236,6 +241,7 @@ impl<T: TimeZone + Debug> Moment<T> {
         formats: Option<&Calendar>,
         calendar_format: Option<CalendarFormatFn<T>>,
     ) -> String {
-        self.locale.calendar(&self, reference_moment, formats, calendar_format)
+        self.locale
+            .calendar(&self, reference_moment, formats, calendar_format)
     }
 }
